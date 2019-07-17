@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/styles.scss" rel="stylesheet">
+    <!-- endbuild -->
+    <title>OnlineShop</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+
+        <h2><span class="text-info">Online</span>Shop</h2>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-control="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Product Types
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#womanSection">Women</a>
+                        <a class="dropdown-item" href="#menSection">Men</a>
+                        <a class="dropdown-item" href="#childrenSection">Children</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#form-contact">Contact US</a>
+                </li>
+                <!--Hidden or Show based on user's Logged in-->
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.html">My Profile</a>
+                </li>
+                <!--Show when Admin who logged in-->
+                <li class="nav-item">
+                    <a class="nav-link" href="all.users.html">All Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="all.items.html">All Items</a>
+                </li>
+            </ul>
+            <a class="btn btn-success btn-edit btn-sm" href="#" id="addBtnID">
+                <i class="fa fa-plus" data-toggle="tooltip" data-placement="bottom"
+                title="Add Admin"></i>
+            </a>
+            <button class="btn btn-outline-danger my-2 btn-sm ml-1" type="submit" id="loginBtn">Login</button>
+
+            <button class="btn btn-outline-info my-2 btn-sm ml-1" type="submit" id="signUpBtn">Signup</button>
+            <!--when login or Signup-->
+            <button hidden="true" class="btn btn-outline-info my-2 btn-sm ml-1" type="submit"
+                id="logoutBtn">Logout</button>
+
+                
+        </div>
+    </nav>
+
+    <!--Modal -> Alert Window-->
+    <div id="addAdminModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Admin</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row align-items-center">
+                            <label class="col-md-3 col-form-label">Email</label>
+                            <input type="email" class="form-control col-12 col-md-6" id="exampleInputEmail"
+                                placeholder="Enter his Email Address">
+                        </div>
+                        <div class="form-group row align-items-center">
+                            <label class="col-md-3 col-form-label">Password</label>
+                            <input type="password" class="form-control col-12 col-md-6" id="exampleInputPass"
+                                placeholder="Enter his Password">
+                        </div>
+
+                        <div class="form-row">
+                            <button type="button" class="btn btn-success btn-sm ml-auto">Add</button>
+                                <button type="button" class="btn btn-secondary btn-sm ml-auto"
+                                data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="buyModal" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">For Buy this Product</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row align-items-center">
+                            <label class="col-md-3 col-form-label">Email</label>
+                            <input type="email" class="form-control col-12 col-md-6" id="exampleInputEmail"
+                                placeholder="Enter your Email Address">
+                        </div>
+                        <div class="form-group row align-items-center">
+                            <label class="col-md-3 col-form-label">Phone Number</label>
+                            <input type="number" class="form-control col-12 col-md-4" id="exampleInputPhone"
+                                placeholder="Enter your Phone Number">
+                        </div>
+                        <div class="form-group row align-items-center">
+                            <label class="col-md-3 col-form-label">Address</label>
+                            <input type="text" class="form-control col-12 col-md-6" id="exampleInputAddress"
+                                placeholder="Enter your Address">
+                        </div>
+                        <div class="row form-group align-items-center">
+                            <label for="noOfitems" class="col-md-3 col-form-label">Number of item</label>
+
+                            <input type="number" class="form-control col-12 col-md-4" id="exampleInputPhone"
+                                placeholder="Enter number of the items">
+
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="offset-md-2 col-md-10">
+                                <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-danger">
+                                    Done
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <!-- <div class="container">
+            <div class="row row-header">
+                    <img src="img/tool.jpg" class="img-fluid page-header">
+            </div>
+        </div> -->
+        <div class="page-header">
+
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row row-content" id="womanSection">
+            <div class="col-12">
+                <h3>Women Section</h3>
+            </div>
+            <div class="col-12 col-sm-5 offset-sm-1">
+
+                <div class="card" style="width: 16rem;">
+                    <img class="card-img-top" width="250" height="250" src="/img/womens1.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h6 class="card-title offset-md-1">Collage of women's clothes</h6>
+                        <h4 class="card-text offset-md-2">
+                            <span class="badge badge-danger">NEW</span>
+                            <span class="badge badge-pill badge-secondary">450 EGP</span>
+                        </h4>
+
+
+
+                        <button id="buyButton" class="btn btn-outline-warning my-2 offset-md-3 " data-toggle="modal"
+                            data-target="#buyModal" type="submit">BUY NOW</button>
+
+                        <button id="editButton" class="btn btn-outline-danger my-2 btn-sm ml-1" data-toggle="modal"
+                            data-target="#editItemModal" type="submit">Edit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-5 offset-sm-1">
+
+                <div class="card" style="width: 16rem;">
+                    <img class="card-img-top" width="250" height="250" src="/img/womens2.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h6 class="card-title offset-md-1">Fashion female clothes collage</h6>
+                        <h4 class="card-text offset-md-2">
+                            <span class="badge badge-info">SALE</span>
+                            <span class="badge badge-pill badge-secondary">320 EGP</span>
+                        </h4>
+                        <button id="buyButton" class="btn btn-outline-warning my-2 offset-md-3 " data-toggle="modal"
+                            data-target="#buyModal" type="submit">BUY NOW</button>
+
+                        <button id="editButton" class="btn btn-outline-danger my-2 btn-sm ml-1" data-toggle="modal"
+                            data-target="#editItemModal" type="submit">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-content" id="menSection">
+            <div class="col-12">
+                <h3>Men Section</h3>
+            </div>
+            <div class="col-12 col-sm-5 offset-sm-1">
+
+                <div class="card" style="width: 16rem;">
+                    <img class="card-img-top" width="250" height="250" src="/img/mens1.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h6 class="card-title offset-md-1">Collage of men's clothes</h6>
+                        <h4 class="card-text offset-md-2">
+                            <span class="badge badge-danger">NEW</span>
+                            <span class="badge badge-pill badge-secondary">520 EGP</span>
+                        </h4>
+                        <button id="buyButton" class="btn btn-outline-warning my-2 offset-md-3 " data-toggle="modal"
+                            data-target="#buyModal" type="submit">BUY NOW</button>
+
+                        <button id="editButton" class="btn btn-outline-danger my-2 btn-sm ml-1" data-toggle="modal"
+                            data-target="#editItemModal" type="submit">Edit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-5 offset-sm-1">
+                <div class="card" style="width: 16rem;">
+                    <img class="card-img-top" width="250" height="250" src="/img/mens2.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h6 class="card-title offset-md-1">Collage of men's clothes</h6>
+                        <h4 class="card-text offset-md-2">
+                            <span class="badge badge-info">SALE</span>
+                            <span class="badge badge-pill badge-secondary">430 EGP</span>
+                        </h4>
+                        <button id="buyButton" class="btn btn-outline-warning my-2 offset-md-3 " data-toggle="modal"
+                            data-target="#buyModal" type="submit">BUY NOW</button>
+
+                        <button id="editButton" class="btn btn-outline-danger my-2 btn-sm ml-1" data-toggle="modal"
+                            data-target="#editItemModal" type="submit">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-content" id="childrenSection">
+            <div class="col-12">
+                <h3>Children Section</h3>
+            </div>
+            <div class="col-12 col-sm-5 offset-sm-1">
+                <div class="card" style="width: 16rem;">
+                    <img class="card-img-top" width="250" height="250" src="/img/children1.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h6 class="card-title offset-md-1">Collage of children's clothes</h6>
+                        <h4 class="card-text offset-md-2">
+                            <span class="badge badge-danger">NEW</span>
+                            <span class="badge badge-pill badge-secondary">340 EGP</span>
+                        </h4>
+                        <button id="buyButton" class="btn btn-outline-warning my-2 offset-md-3 " data-toggle="modal"
+                            data-target="#buyModal" type="submit">BUY NOW</button>
+
+                        <button id="editButton" class="btn btn-outline-danger my-2 btn-sm ml-1" data-toggle="modal"
+                            data-target="#editItemModal" type="submit">Edit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-5 offset-sm-1">
+                <div class="card" style="width: 16rem;">
+                    <img class="card-img-top" width="250" height="250" src="/img/children2.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h6 class="card-title offset-md-1">Collage of children's clothes</h6>
+                        <h4 class="card-text offset-md-2">
+                            <span class="badge badge-info">SALE</span>
+                            <span class="badge badge-pill badge-secondary">450 EGP</span>
+                        </h4>
+                        <button id="buyButton" class="btn btn-outline-warning my-2 offset-md-3 " data-toggle="modal"
+                            data-target="#buyModal" type="submit">BUY NOW</button>
+
+                        <button id="editButton" class="btn btn-outline-danger my-2 btn-sm ml-1" data-toggle="modal"
+                            data-target="#editItemModal" type="submit">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                                <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3"
+                                    placeholder="Enter email">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                <input type="password" class="form-control form-control-sm mr-1"
+                                    id="exampleInputPassword3" placeholder="Password">
+                            </div>
+                            <div class="col-sm-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto"
+                                data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="signUpModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Signup</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <label for="exampleInputName">First Name</label>
+                                <input type="text" class="form-control form-control-sm mr-1" id="exampleInputName"
+                                    placeholder="Enter First Name">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="exampleInputName2">Last Name</label>
+                                <input type="text" class="form-control form-control-sm mr-1" id="exampleInputName2"
+                                    placeholder="Enter Last Name">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="exampleInputPhoneNum">Phone Number</label>
+                                <input type="number" class="form-control form-control-sm mr-1" id="exampleInputPhoneNum"
+                                    placeholder="Enter Phone Number">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="exampleInputEmail">Email address</label>
+                                <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail"
+                                    placeholder="Enter email">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label for="exampleInputPassword">Password</label>
+                                <input type="password" class="form-control form-control-sm mr-1"
+                                    id="exampleInputPassword" placeholder="Password">
+                            </div>
+
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto"
+                                data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="editItemModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Item</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <label for="exampleInputName">Item Name</label>
+                                <input type="text" class="form-control form-control-sm mr-1" id="exampleInputName"
+                                    placeholder="Name of Item">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label for="exampleInputSalary">Item Salary</label>
+                                <input type="number" class="form-control form-control-sm mr-1" id="exampleInputSalary"
+                                    placeholder="Salary of Item">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-danger btn-sm ml-auto"
+                                data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-info btn-sm ml-1">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+
+            <div class="block__title" id="contact">
+                <h2>Contact</h2>
+            </div>
+            <div class="row">
+                <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-12">
+                            <h4>Our Address</h4>
+                            <address style="color: crimson">
+                                13 El-Nozha Street
+                                <br>
+                                Cairo,
+                                <br>
+                                Egypt
+                            </address>
+                        </div>
+                        <div class="col-sm-6 col-lg-12">
+                            <div class="py-4">
+                                <figure>
+                                    <i class="fa fa-envelope width-20px"></i>
+                                    <a href="#">shops@gmail.com</a>
+                                </figure>
+
+                                <figure>
+                                    <i class="fa fa-twitter width-20px"></i>
+                                    <a href="#">shops.group</a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-7 col-lg-6 col-md-12 col-sm-12">
+                    <h4>Contact Form</h4>
+
+                    <form id="form-contact" method="post" class="form clearfix">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="form-contact-name">Your Name</label>
+                                    <input type="text" class="form-control" id="form-contact-name" name="name"
+                                        placeholder="Your Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="form-contact-email">Your Email</label>
+                                    <input type="email" class="form-control" id="form-contact-email" name="email"
+                                        placeholder="Your Email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="form-contact-message">Your Message</label>
+                                    <textarea class="form-control" id="form-contact-message" rows="8" name="message"
+                                        placeholder="Your Message" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group clearfix">
+                            <button type="submit" class="btn pull-right btn-default" id="form-contact-submit">Send a
+                                Message</button>
+                        </div>
+                        <div class="form-contact-status"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <hr class="hr-white opacity-10">
+
+
+        <div class="container">
+            <span>(C) Copyright 2019, All Rights Reserved</span>
+        </div>
+
+        <div class="background-wrapper">
+            <div class="background background--particles"></div>
+        </div>
+
+    </footer>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--this script to show the button based on The behavior of the carousel-->
+    <script src="/js/scripts.js"></script>
+    <!--this script to control the two button on the Carousel-->
+    <!-- <script>
+        $(document).ready(function(){
+            $("#mycarousel").carousel( { interval: 2000 } );
+            $("#carousel-pause").click(function(){
+                $("#mycarousel").carousel('pause');
+            });
+            $("#carousel-play").click(function(){
+                $("#mycarousel").carousel('cycle');
+            });
+        });
+    </script> -->
+    <!--this script to show Tooltip (Hint) on Reserve Table-->
+    <!--  <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script> -->
+    <script src="/js/scripts.js"></script>
+    <script src="/js/scripts.js"></script>
+</body>
+
+</html>

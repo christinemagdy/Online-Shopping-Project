@@ -1,0 +1,62 @@
+/* .row-header{
+    @include zero-margin(0px,0px);
+} */
+.row-content {
+  margin: 0px auto;
+  padding: 50px 0px;
+  border-bottom: 1px ridge;
+  min-height: 400px; }
+
+  .nav-link {
+    color: whitesmoke !important;
+  }
+  a:hover {
+    color: cadetblue !important;
+    font-weight: bold;
+  }
+footer {
+  background-color: #92939b;
+  margin: 0px auto;
+  padding: 20px 0px;
+  background-image: url(/img/source.gif);
+  color: aliceblue; }
+
+address {
+  font-size: 80%;
+  margin: 0px;
+  color: #0f0f0f; }
+
+body {
+  padding: 50px 0px 0px 0px;
+  z-index: 0; }
+
+.navbar-dark {
+  background-color: #4b4646; }
+
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px; }
+
+.modal .modal-header {
+  background-color: #4b4646;
+  color: floralwhite; }
+  .modal .modal-header button {
+    color: floralwhite; }
+
+.modal .modal-body {
+  background-color: #92939b; }
+
+.modal .modal-footer {
+  background: #bbbfc2; }
+
+.page-header {
+  height: 260px;
+  margin-top: 0px;
+  background-size: cover;
+  background-image: url(/img/toolbar.png); }
+
+  #addBtnID{
+    border-radius: 50%; width:32px; height:32px; line-height:22px;
+  }

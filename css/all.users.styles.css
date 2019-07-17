@@ -1,0 +1,23 @@
+.row-content {
+    margin: 0px auto;
+    padding: 50px 0px;
+    border-bottom: 1px ridge;
+    min-height: 400px; }
+  
+    .nav-link {
+      color: whitesmoke !important;
+    }
+    a:hover {
+      color: cadetblue !important;
+      font-weight: bold;
+    }
+
+    .page-header {
+        height: 260px;
+        margin-top: 0px;
+        background-size: cover;
+        background-image: url(/img/toolbar.png); }
+
+        .list-group i{
+            color: red;
+        }
